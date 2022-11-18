@@ -54,41 +54,41 @@ Nous travaillons à un paquet Debian qui automatisera le processus et devrait à
     a. Ouvrir un terminal et taper les lignes de commandes suivantes (pour chaque encadré, taper la commande sur une seule ligne sans retour à la ligne) :
       1. Télécharger la clé PGP de Signal :
    
-            wget -O- https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor > signal-desktop-keyring.gpg
+              wget -O- https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor > signal-desktop-keyring.gpg
         
       2. Ajouter la clé PGP de Signal au gestionnaire de paquet APT :
      
-            cat signal-desktop-keyring.gpg | sudo tee -a /usr/share/keyrings/signal-desktop-keyring.gpg > /dev/null
+              cat signal-desktop-keyring.gpg | sudo tee -a /usr/share/keyrings/signal-desktop-keyring.gpg > /dev/null
         
       3. Ajouter le dépôt de paquet de Signal à APT :
     
-          echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] tor+https://updates.signal.org/desktop/apt xenial main' | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
+            echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] tor+https://updates.signal.org/desktop/apt xenial main' | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
         
-    iv. Mettre à jour la liste des paquets :
+      4. Mettre à jour la liste des paquets :
     
-        sudo apt update
+             sudo apt update
         
-    v. Télécharger le paquet Signal Desktop :
-    
-         apt download signal-desktop
+      5. Télécharger le paquet Signal Desktop :
+      
+             apt download signal-desktop
          
-    vi. Créer le dossier dans le quel décompresser Signal Desktop :
+      6. Créer le dossier dans le quel décompresser Signal Desktop :
     
-         mkdir -pv /live/persistence/TailsData_unlocked/dotfiles/Applications/signal-desktop
+             mkdir -pv /live/persistence/TailsData_unlocked/dotfiles/Applications/signal-desktop
                
-    vii. Décompresser Signal Desktop :
-    
-        dpkg-deb -xv $(ls signal-desktop*.deb) "$DOTFILES/Applications/signal-desktop"
+      7. Décompresser Signal Desktop :
+      
+             dpkg-deb -xv $(ls signal-desktop*.deb) "$DOTFILES/Applications/signal-desktop"
         
-    viii. Aller dans le dossier signal/ précédement téléchargé, puis dans le dossier install et copier le fichier startup.sh. 
-    ix. Effectuer le raccourci clavier ctrl+l et taper le chemin du dossier suivant : /live/persistence/TailsData_unlocked/dotfiles/Applications/signal-desktop et entrée. Coller le fichier startup.sh à cet endroit.
-    x. Finalement les deux dernière ligne de commande :
+      8. Aller dans le dossier signal/ précédement téléchargé, puis dans le dossier install et copier le fichier startup.sh. 
+      9. Effectuer le raccourci clavier ctrl+l et taper le chemin du dossier suivant : /live/persistence/TailsData_unlocked/dotfiles/Applications/signal-desktop et entrée. Coller le fichier startup.sh à cet endroit.
+      10. Finalement les deux dernière ligne de commande :
     
-        mkdir -vp /live/persistence/TailsData_unlocked/dotfiles/.local/share/applications/
+              mkdir -vp /live/persistence/TailsData_unlocked/dotfiles/.local/share/applications/
         
-    xi. et la dernière qui permet de copier le lanceur de Signal Desktop afin de l’avoir à chaque redémarrage
+      11. et la dernière qui permet de copier le lanceur de Signal Desktop afin de l’avoir à chaque redémarrage
     
-        cp /live/persistence/TailsData_unlocked/dotfiles/Applications/signal-desktop/usr/share/applications/signal-desktop.desktop /live/persistence/TailsData_unlocked/dotfiles/.local/share/applications/
+              cp /live/persistence/TailsData_unlocked/dotfiles/Applications/signal-desktop/usr/share/applications/signal-desktop.desktop /live/persistence/TailsData_unlocked/dotfiles/.local/share/applications/
         
   4. Installer signal-cli :
    a) Ouvrir l’explorateur de fichier, raccourci clavier ctrl+l et taper la ligne suivante : **/live/persistence/TailsData_unlocked/dotfiles/Applications/** et Entrée
