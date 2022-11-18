@@ -21,7 +21,7 @@ Merci aux blogs bisco.org et ctrl.alt.coop pour les tutos, à ??? dont ce tuto 
 ## Ressources
 
 À compléter :
-  * le wiki de signal-cli :  https://github.com/AsamK/signal-cli/wiki
+* le wiki de signal-cli :  https://github.com/AsamK/signal-cli/wiki
 
 ## Ce qui est nécessaire
 
