@@ -97,7 +97,7 @@ Ouvrir un terminal et taper les lignes de commandes suivantes (pour chaque encad
         
         mkdir -p /live/persistence/TailsData_unlocked/dotfiles/.local/share/
         cp ~/.local/share/applications/ /live/persistence/TailsData_unlocked/dotfiles/.local/share/
-        cp ~/Applications/ /live/persistence/TailsData_unlocked/dotfiles/
+        cp -r ~/Applications/ /live/persistence/TailsData_unlocked/dotfiles/
 
 ####  Installer signal-cli :
 
@@ -109,17 +109,16 @@ Ouvrir un terminal et taper les lignes de commandes suivantes (pour chaque encad
      
   2. Créer le répertoire et décompresser l'archive :
      
-         mkdir -p ~/Applications/signal-cli
-         tar xf signal-cli-0.11.5.1-Linux.tar.gz -C ~/Applications/signal-cli/
+         tar -zxf signal-cli-0.11.5.1-Linux.tar.gz -C ~/Applications/
   
   3. Modifier la configuration de Bash:
      
          echo -e "export JAVA_TOOL_OPTIONS=\"-Djava.net.preferIPv4Stack=true\"\nalias signal-cli=\"torsocks ~/Applications/signal-cli-0.11.5.1/bin/signal-cli\"" >> ~/.bashrc
   
-  4. Et finalement, la dernière commande pour enregistrer ce fichier et *signal-cli* dans la persistance :
+  4. Et finalement, la dernière commande pour enregistrer la configurationd e Bash et *signal-cli* dans la persistance :
      
          cp ~/.bashrc /live/persistence/TailsData_unlocked/dotfiles
-         cp ~/Applications/signal-cli/ /live/persistence/TailsData_unlocked/dotfiles/Applications
+         cp -r ~/Applications/signal-cli-0.11.5.1/ /live/persistence/TailsData_unlocked/dotfiles/Applications
 
 ### Installation avec le script fournis
 
@@ -129,7 +128,7 @@ Ouvrir un terminal et taper les lignes de commandes suivantes (pour chaque encad
 3. Naviguer dans le dossier *signal-sous-tails/* --> *install/* Depuis là, clique-droit et choisir *Ouvrir dans un terminal…*
 4. Dans le terminal, taper la ligne suivante :
 
-      ./install.sh
+         ./install.sh
       
 5. Rentrer le mot de passe administrateur quand demandé, si tout c’est bien passé Signal Desktop et signal-cli sont installés de manière persitente. Il ne reste plus qu’à redémarrer l’ordinateur.
   

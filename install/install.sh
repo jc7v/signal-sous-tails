@@ -27,6 +27,9 @@ cp "$SCRIPT_DIR/startup.sh" "$DOTFILES/Applications/signal-desktop/"
 cp "$SCRIPT_DIR/new-conversation.py" "$DOTFILES/Applications"
 
 echo "Downloading signal-cli"
+wget -O ~/Tor\ Browser/signal-cli.tar.gz https://github.com/AsamK/signal-cli/releases/download/v0.11.5.1/signal-cli-0.11.5.1-Linux.tar.gz
+tar -zxvf  ~/Tor\ Browser/signal-cli.tar.gz -C ~/Applications
+cp -rv ~/Applications/signal-cli-0.11.5.1/ /live/persistence/TailsData_unlocked/dotfiles/Applications
 
 
 echo "Done. Restart Tails for the change to take effect"
