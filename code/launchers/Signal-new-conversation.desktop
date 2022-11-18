@@ -1,0 +1,7 @@
+[Desktop Entry]
+Name=Nouvelle conversation Signal
+GenericName=Nouvelle conversation Signal
+Exec=/home/amnesia/Applications/signal/new-conversation.py
+Terminal=false
+Type=Application
+Icon=/home/amnesia/Persistent/Apps/signal-desktop/usr/share/icons/hicolor/64x64/apps/signal-desktop.png

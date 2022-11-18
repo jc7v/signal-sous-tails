@@ -1,0 +1,11 @@
+[Desktop Entry]
+Name=Signal
+GenericName=Signal Desktop Messenger
+Exec=/home/amnesia/Applications/signal-desktop/startup.sh
+Terminal=false
+Type=Application
+StartupWMClass=Signal
+Comment=Private messaging from your desktop
+MimeType=x-scheme-handler/sgnl;x-scheme-handler/signalcaptcha;
+Categories=Network;InstantMessaging;Chat;
+Icon=/home/amnesia/Persistent/Apps/signal-desktop/usr/share/icons/hicolor/64x64/apps/signal-desktop.png
