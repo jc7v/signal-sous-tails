@@ -48,85 +48,96 @@ Nous travaillons à un paquet Debian qui automatisera le processus et devrait à
 
 ### Installation manuelle de Signal
 
+#### Prérequis
+
 1. Démarrer sous Tails, déverrouiller la persistance, définir un mot de passe d’administration
 2. Télécharger le dossier qui contient de la doc et facilite l’installation depuis cette adresse : et le décompresser (clique-droit et choisir extraire ici..). Par la suite nous appellerons ce dossier signal/
-3. Installer Signal Desktop; Ouvrir un terminal et taper les lignes de commandes suivantes (pour chaque encadré, taper la commande sur une seule ligne sans retour à la ligne) :
-    1. Télécharger la clé PGP de Signal :
- 
-            wget -O- https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor > signal-desktop-keyring.gpg
-      
-    2. Ajouter la clé PGP de Signal au gestionnaire de paquet APT :
-    
-            cat signal-desktop-keyring.gpg | sudo tee -a /usr/share/keyrings/signal-desktop-keyring.gpg > /dev/null
-      
-    3. Ajouter le dépôt de paquet de Signal à APT :
+
+#### Installer Signal Desktop
+
+Ouvrir un terminal et taper les lignes de commandes suivantes (pour chaque encadré, taper la commande sur une seule ligne sans retour à la ligne) :
+
+1. Télécharger la clé PGP de Signal :
+
+        wget -O- https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor > signal-desktop-keyring.gpg
   
-            echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] tor+https://updates.signal.org/desktop/apt xenial main' | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
-      
-    4. Mettre à jour la liste des paquets :
+2. Ajouter la clé PGP de Signal au gestionnaire de paquet APT :
+
+        cat signal-desktop-keyring.gpg | sudo tee -a /usr/share/keyrings/signal-desktop-keyring.gpg > /dev/null
   
-           sudo apt update
-      
-    5. Télécharger le paquet Signal Desktop :
-    
-           apt download signal-desktop
-       
-    6. Créer le dossier dans le quel décompresser Signal Desktop :
+3. Ajouter le dépôt de paquet de Signal à APT :
+
+        echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] tor+https://updates.signal.org/desktop/apt xenial main' |\
+        sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
   
-           mkdir -pv /live/persistence/TailsData_unlocked/dotfiles/Applications/signal-desktop
-             
-    7. Décompresser Signal Desktop :
-    
-           dpkg-deb -xv $(ls signal-desktop*.deb) "$DOTFILES/Applications/signal-desktop"
-      
-    8. Aller dans le dossier signal/ précédement téléchargé, puis dans le dossier install et copier le fichier startup.sh. 
-    9. Effectuer le raccourci clavier ctrl+l et taper le chemin du dossier suivant : /live/persistence/TailsData_unlocked/dotfiles/Applications/signal-desktop et entrée. Coller le fichier startup.sh à cet endroit.
-    10. Finalement les deux dernière ligne de commande :
+4. Mettre à jour la liste des paquets :
+
+       sudo apt update
   
-            mkdir -vp /live/persistence/TailsData_unlocked/dotfiles/.local/share/applications/
-      
-    11. et la dernière qui permet de copier le lanceur de Signal Desktop afin de l’avoir à chaque redémarrage
-  
-            cp /live/persistence/TailsData_unlocked/dotfiles/Applications/signal-desktop/usr/share/applications/signal-desktop.desktop /live/persistence/TailsData_unlocked/dotfiles/.local/share/applications/
-      
- Installer signal-cli :
- a) Ouvrir l’explorateur de fichier, raccourci clavier ctrl+l et taper la ligne suivante : **/live/persistence/TailsData_unlocked/dotfiles/Applications/** et Entrée
- b) créer un nouveau dossier qui s’appelle signal-cli 
- c) ouvrir un terminal et taper les lignes de commandes suivantes :
-  i. Télécharge signal-cli
+5. Télécharger le paquet Signal Desktop :
+
+       apt download signal-desktop
    
-      wget https://github.com/AsamK/signal-cli/releases/download/v0.10.11/signal-cli-0.10.11-Linux.tar.gz
-      
-  ii. Le décompresser :
-      
-      tar xf signal-cli-0.10.11-Linux.tar.gz -C /live/persistence/TailsData_unlocked/dotfiles/Applications/signal-cli
-   
-  iii. Modifier la configuration de Bash:
-      
-      echo -e "export JAVA_TOOL_OPTIONS=\"-Djava.net.preferIPv4Stack=true\"\nalias signal-cli=\"torsocks ~/Applications/signal-cli-0.10.11/bin/signal-cli\"" >> ~/.bashrc
-   
-  iv. Et finalement, la dernière commande pour enregistrer ce fichier dans la persistance :
-      
-      cp ~/.bashrc /live/persistence/TailsData_unlocked/dotfiles
- 
-5. Finalement, redémarrer l’ordinateur.
+6. Créer le dossier dans le quel décompresser Signal Desktop :
+
+       mkdir -p ~/Applications/signal-desktop
+         
+7. Décompresser Signal Desktop :
+
+       dpkg-deb -xv $(ls signal-desktop*.deb) "~/Applications/signal-desktop"
+  
+8. Aller dans le dossier `signal-sous-tails/` précédement téléchargé, puis dans le dossier `install/` et copier le fichier *startup.sh*. 
+9. Depuis l'explorateur de fichier, se rendre dans le dossier: *Dossier personel* --> *Applications* --> *signal-desktop* et coller le fichier *startup.sh* à cet endroit 
+10. Pour installer le lanceur de *Signal Desktop*, ouvrir l'explorateur de fichier, se rendre dans le dossier *signal-sous-tails* --> *install* et clique-droit --> *ouvrir dans un terminal*
+
+        cp *.desktop ~/.local/share/applications/
+  
+11. **IMPORTANT** pour garder cette installation dans la persitence et ainsi l'avoir à chaque démarrage, effectuer les commandes suivantes:
+        
+        mkdir -p /live/persistence/TailsData_unlocked/dotfiles/.local/share/
+        cp ~/.local/share/applications/ /live/persistence/TailsData_unlocked/dotfiles/.local/share/
+        cp ~/Applications/ /live/persistence/TailsData_unlocked/dotfiles/
+
+####  Installer signal-cli :
+
+1. Ouvrir l’explorateur de fichier, naviguer dans le dossier: *Dosssier personel* --> *Applications*
+3. Ouvrir un terminal et taper les lignes de commandes suivantes :
+  1. Télécharge signal-cli
+  
+        wget https://github.com/AsamK/signal-cli/releases/download/v0.11.5.1/signal-cli-0.11.5.1-Linux.tar.gz
+     
+  2. Le décompresser :
+     
+        tar xf signal-cli-0.11.5.1-Linux.tar.gz -C /live/persistence/TailsData_unlocked/dotfiles/Applications/signal-cli
+  
+  3. Modifier la configuration de Bash:
+     
+        echo -e "export JAVA_TOOL_OPTIONS=\"-Djava.net.preferIPv4Stack=true\"\nalias signal-cli=\"torsocks ~/Applications/signal-cli-0.11.5.1/bin/signal-cli\"" >> ~/.bashrc
+  
+  4. Et finalement, la dernière commande pour enregistrer ce fichier et *signal-cli* dans la persistance :
+     
+        cp ~/.bashrc /live/persistence/TailsData_unlocked/dotfiles
+        cp ~/Applications/signal-cli/ /live/persistence/TailsData_unlocked/dotfiles/Applications
+
+Finalement, redémarrer l’ordinateur.
                
 ### Installation avec le script fournis
 
 1. Démarrer sous Tails, déverrouiller la persistance, définir un mot de passe d’administration
-2. Télécharger le dossier qui contient de la doc et facilite l’installation depuis cette adresse : et le décompresser (clique-droit et choisir **extraire ici...**). Par la suite nous appellerons ce dossier **signal/**
-3. Naviguer dans le dossier **signal/** puis **install/** Depuis là, clique-droit et choisir  Ouvrir dans un terminal…
+2. [Télécharger le répertoire](https://github.com/jc7v/signal-sous-tails/archive/refs/heads/master.zip) qui contient cette documentation et le script d'installation
+3. le décompresser: clique-droit et choisir *extraire ici...*. Par la suite nous appellerons ce dossier *signal-sous-tails/*
+3. Naviguer dans le dossier *signal-sous-tails/* --> *install/* Depuis là, clique-droit et choisir *Ouvrir dans un terminal…*
 4. Dans le terminal, taper la ligne suivante :
 
       ./install.sh
       
-5. Renter le mot de passe administrateur quand demandé, si tout c’est bien passé Signal Desktop et signal-cli sont installés. Il ne reste plus qu’à redémarrer l’ordinateur.
+5. Rentrer le mot de passe administrateur quand demandé, si tout c’est bien passé Signal Desktop et signal-cli sont installés de manière persitente. Il ne reste plus qu’à redémarrer l’ordinateur.
   
 ## Configurer un nouveau compte Signal
 
 ### 1. Résoudre un Captcha
 Sous Tails, toutes les connexion Internet utilisent Tor. En conséquence, le serveur de Signal demande de valider l'enregistrement avec un (captcha)[https://github.com/AsamK/signal-cli/wiki/Registration-with-captcha].
-1. ouvrir avec le Navigateur Tor: (la page pour captcha de Signal)[https://signalcaptchas.org/challenge/generate.html]  ou (une cette adresse si la précédante ne fonctionne pas)[https://signalcaptchas.org/registration/generate.html] (au choix).
+1. ouvrir avec le Navigateur Tor: [la page pour captcha de Signal](https://signalcaptchas.org/challenge/generate.html)  ou [une autre adresse](https://signalcaptchas.org/registration/generate.html) si la précédante ne fonctionne pas (au choix).
 2. Dans le navigateur, ouvrir une console (clic droit sur la page, **inspecter**, puis **console** dans le bandeau des outils développeur.
 3. Résoudre le captcha, C’est long !!!
 4. Dans la console, copier la longue suite de caractère qui s'affiche après **signalcaptcha://**

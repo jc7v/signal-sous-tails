@@ -28,4 +28,5 @@ cp "$SCRIPT_DIR/new-conversation.py" "$DOTFILES/Applications"
 
 echo "Downloading signal-cli"
 
-echo "Done. Restart Tails for the change take effect"
+
+echo "Done. Restart Tails for the change to take effect"
