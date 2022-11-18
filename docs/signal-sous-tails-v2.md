@@ -54,15 +54,15 @@ Nous travaillons à un paquet Debian qui automatisera le processus et devrait à
     1. Ouvrir un terminal et taper les lignes de commandes suivantes (pour chaque encadré, taper la commande sur une seule ligne sans retour à la ligne) :
       1. Télécharger la clé PGP de Signal :
    
-        wget -O- https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor > signal-desktop-keyring.gpg
+            wget -O- https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor > signal-desktop-keyring.gpg
         
-    ii. Ajouter la clé PGP de Signal au gestionnaire de paquet APT :
+      2. Ajouter la clé PGP de Signal au gestionnaire de paquet APT :
      
-        cat signal-desktop-keyring.gpg | sudo tee -a /usr/share/keyrings/signal-desktop-keyring.gpg > /dev/null
+            cat signal-desktop-keyring.gpg | sudo tee -a /usr/share/keyrings/signal-desktop-keyring.gpg > /dev/null
         
-    iii. Ajouter le dépôt de paquet de Signal à APT :
+      3. Ajouter le dépôt de paquet de Signal à APT :
     
-        echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] tor+https://updates.signal.org/desktop/apt xenial main' | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
+          echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] tor+https://updates.signal.org/desktop/apt xenial main' | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
         
     iv. Mettre à jour la liste des paquets :
     
