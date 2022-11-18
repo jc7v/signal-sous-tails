@@ -5,7 +5,7 @@ Le but de ce répertoire est double:
 1. fournir de la doc sur comment installer/utiliser Signal sous Tails et plus particulièrement sans Smartphone
 2. Fournir des scripts pour automatiser l'installation, les mises à jours, etc.
 
-**Le lien pour** [visualiser la documentaion](https://github.com/jc7v/signal-sous-tails/blob/master/docs/signal-sous-tails-v2.md)
+**Le lien pour** [la documentaion d'installation et configuration](https://github.com/jc7v/signal-sous-tails/blob/master/docs/signal-sous-tails-v2.md)
 
 ## Pour la suite
 
