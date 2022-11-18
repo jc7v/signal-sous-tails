@@ -51,8 +51,9 @@ Nous travaillons à un paquet Debian qui automatisera le processus et devrait à
   1. Démarrer sous Tails, déverrouiller la persistance, définir un mot de passe d’administration
   2. Télécharger le dossier qui contient de la doc et facilite l’installation depuis cette adresse : et le décompresser (clique-droit et choisir extraire ici..). Par la suite nous appellerons ce dossier signal/
   3. Installer Signal Desktop :
-   a. Ouvrir un terminal et taper les lignes de commandes suivantes (pour chaque encadré, taper la commande sur une seule ligne sans retour à la ligne) :
-    i. Télécharger la clé PGP de Signal :
+   
+  a. Ouvrir un terminal et taper les lignes de commandes suivantes (pour chaque encadré, taper la commande sur une seule ligne sans retour à la ligne) :
+  i. Télécharger la clé PGP de Signal :
    
         wget -O- https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor > signal-desktop-keyring.gpg
         
