@@ -105,6 +105,7 @@ Ouvrir un terminal et taper les lignes de commandes suivantes (pour chaque encad
 3. Ouvrir un terminal et taper les lignes de commandes suivantes :
   1. Télécharge signal-cli
   
+<<<<<<< HEAD
          wget https://github.com/AsamK/signal-cli/releases/download/v0.11.5.1/signal-cli-0.11.5.1-Linux.tar.gz
      
   2. Créer le répertoire et décompresser l'archive :
@@ -121,6 +122,25 @@ Ouvrir un terminal et taper les lignes de commandes suivantes (pour chaque encad
          cp ~/.bashrc /live/persistence/TailsData_unlocked/dotfiles
          cp ~/Applications/signal-cli/ /live/persistence/TailsData_unlocked/dotfiles/Applications
 
+=======
+        wget https://github.com/AsamK/signal-cli/releases/download/v0.11.5.1/signal-cli-0.11.5.1-Linux.tar.gz
+     
+  2. Le décompresser :
+     
+        tar xf signal-cli-0.11.5.1-Linux.tar.gz -C /live/persistence/TailsData_unlocked/dotfiles/Applications/signal-cli
+  
+  3. Modifier la configuration de Bash:
+     
+        echo -e "export JAVA_TOOL_OPTIONS=\"-Djava.net.preferIPv4Stack=true\"\nalias signal-cli=\"torsocks ~/Applications/signal-cli-0.11.5.1/bin/signal-cli\"" >> ~/.bashrc
+  
+  4. Et finalement, la dernière commande pour enregistrer ce fichier et *signal-cli* dans la persistance :
+     
+        cp ~/.bashrc /live/persistence/TailsData_unlocked/dotfiles
+        cp ~/Applications/signal-cli/ /live/persistence/TailsData_unlocked/dotfiles/Applications
+
+Finalement, redémarrer l’ordinateur.
+               
+>>>>>>> 6f89fef6ebc0baec93e0e9633044d4ea6422f4e8
 ### Installation avec le script fournis
 
 1. Démarrer sous Tails, déverrouiller la persistance, définir un mot de passe d’administration
