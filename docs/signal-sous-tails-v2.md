@@ -50,19 +50,18 @@ Nous travaillons à un paquet Debian qui automatisera le processus et devrait à
 
   1. Démarrer sous Tails, déverrouiller la persistance, définir un mot de passe d’administration
   2. Télécharger le dossier qui contient de la doc et facilite l’installation depuis cette adresse : et le décompresser (clique-droit et choisir extraire ici..). Par la suite nous appellerons ce dossier signal/
-  3. Installer Signal Desktop
-    a. Ouvrir un terminal et taper les lignes de commandes suivantes (pour chaque encadré, taper la commande sur une seule ligne sans retour à la ligne) :
+  3. Installer Signal Desktop; Ouvrir un terminal et taper les lignes de commandes suivantes (pour chaque encadré, taper la commande sur une seule ligne sans retour à la ligne) :
       1. Télécharger la clé PGP de Signal :
    
               wget -O- https://updates.signal.org/desktop/apt/keys.asc | gpg --dearmor > signal-desktop-keyring.gpg
         
       2. Ajouter la clé PGP de Signal au gestionnaire de paquet APT :
-     
+      
               cat signal-desktop-keyring.gpg | sudo tee -a /usr/share/keyrings/signal-desktop-keyring.gpg > /dev/null
         
       3. Ajouter le dépôt de paquet de Signal à APT :
     
-            echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] tor+https://updates.signal.org/desktop/apt xenial main' | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
+              echo 'deb [arch=amd64 signed-by=/usr/share/keyrings/signal-desktop-keyring.gpg] tor+https://updates.signal.org/desktop/apt xenial main' | sudo tee -a /etc/apt/sources.list.d/signal-xenial.list
         
       4. Mettre à jour la liste des paquets :
     
@@ -90,7 +89,7 @@ Nous travaillons à un paquet Debian qui automatisera le processus et devrait à
     
               cp /live/persistence/TailsData_unlocked/dotfiles/Applications/signal-desktop/usr/share/applications/signal-desktop.desktop /live/persistence/TailsData_unlocked/dotfiles/.local/share/applications/
         
-  4. Installer signal-cli :
+4. Installer signal-cli :
    a) Ouvrir l’explorateur de fichier, raccourci clavier ctrl+l et taper la ligne suivante : **/live/persistence/TailsData_unlocked/dotfiles/Applications/** et Entrée
    b) créer un nouveau dossier qui s’appelle signal-cli 
    c) ouvrir un terminal et taper les lignes de commandes suivantes :
